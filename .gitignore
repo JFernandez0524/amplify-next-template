@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -39,3 +40,20 @@ next-env.d.ts
 .amplify
 amplify_outputs*
 amplifyconfiguration*
+
+# Google OAuth credentials (never commit these!)
+*client_secret*.json
+*oauth*.json
+*credentials*.json
+GOOGLE_client_secret_ID.json
+client_secret_*.json
+
+# AWS credentials
+aws-exports.js
+awsconfiguration.json
+
+# API keys and secrets
+*.key
+*.pem
+*.p12
+*.pfx
