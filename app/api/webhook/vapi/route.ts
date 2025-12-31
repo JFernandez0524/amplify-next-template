@@ -209,6 +209,30 @@ function calculateEstimatedValue(answers: Record<string, any>, serviceType: stri
     if (frequency === 'monthly') return basePrice;
   }
   
+  if (serviceType.includes('notary')) {
+    const documentType = answers.document_type || 'Personal Documents';
+    const signerCount = answers.signer_count || '1 person';
+    const urgency = answers.timeline || 'Flexible timing';
+    
+    let basePrice = 75; // Base notary fee
+    
+    // Document type pricing
+    if (documentType === 'Real Estate') basePrice = 150;
+    if (documentType === 'Legal Documents') basePrice = 125;
+    if (documentType === 'Financial Documents') basePrice = 100;
+    
+    // Additional signers
+    if (signerCount.includes('2')) basePrice += 25;
+    if (signerCount.includes('3-5')) basePrice += 50;
+    if (signerCount.includes('More than 5')) basePrice += 100;
+    
+    // Urgency pricing
+    if (urgency === 'Today') basePrice += 50;
+    if (urgency === 'Within 24 hours') basePrice += 25;
+    
+    return basePrice;
+  }
+  
   return 250; // Default estimate
 }
 

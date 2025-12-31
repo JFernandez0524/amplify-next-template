@@ -1,4 +1,4 @@
-import Hero from '@/src/components/landing-page/Hero';
+import HeroNew from '@/src/components/landing-page/HeroNew';
 import Features from '@/src/components/landing-page/Features';
 import { getNicheConfig } from '@/src/config/niche-config';
 
@@ -6,8 +6,8 @@ export default function HomePage() {
   const config = getNicheConfig();
 
   return (
-    <main>
-      <Hero />
+    <main className="min-h-screen">
+      <HeroNew />
       <Features />
       
       {/* Additional sections */}

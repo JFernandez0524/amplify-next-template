@@ -244,10 +244,110 @@ const HOUSE_CLEANING_CONFIG: NicheConfig = {
   }
 };
 
+const MOBILE_NOTARY_CONFIG: NicheConfig = {
+  business: {
+    name: "Swift Mobile Notary",
+    serviceType: "Mobile Notary",
+    tagline: "Professional Notary Services at Your Location",
+    description: "Certified mobile notary services for all your document needs"
+  },
+  branding: {
+    logoUrl: "/logos/notary-logo.png",
+    primaryColor: "#1f2937",
+    secondaryColor: "#374151",
+    accentColor: "#f59e0b",
+    fontFamily: "Inter"
+  },
+  vapi: {
+    assistantId: "notary-assistant-id",
+    voiceType: "professional-female"
+  },
+  ghl: {
+    pipelineId: "notary-pipeline-id",
+    stageId: "new-lead-stage-id",
+    tagNames: ["mobile-notary", "web-lead"],
+    customFields: {
+      documentType: "custom_field_document_type",
+      signerCount: "custom_field_signer_count",
+      location: "custom_field_location",
+      urgency: "custom_field_urgency"
+    }
+  },
+  qualification: {
+    questions: [
+      {
+        id: "document_type",
+        question: "What type of document needs to be notarized?",
+        type: "select",
+        options: ["Real Estate", "Legal Documents", "Financial Documents", "Personal Documents", "Business Documents"],
+        required: true,
+        weight: 3
+      },
+      {
+        id: "signer_count",
+        question: "How many people need to sign?",
+        type: "select",
+        options: ["1 person", "2 people", "3-5 people", "More than 5"],
+        required: true,
+        weight: 2
+      },
+      {
+        id: "location",
+        question: "Where would you like the notary service?",
+        type: "select",
+        options: ["Home", "Office", "Hospital/Care facility", "Other location"],
+        required: true,
+        weight: 2
+      },
+      {
+        id: "timeline",
+        question: "When do you need this service?",
+        type: "select",
+        options: ["Today", "Within 24 hours", "Within a week", "Flexible timing"],
+        required: true,
+        weight: 4
+      }
+    ],
+    highIntentSignals: ["today", "urgent", "ASAP", "real estate closing", "need it done"],
+    disqualifiers: ["just checking prices", "maybe later", "not sure when"]
+  },
+  content: {
+    hero: {
+      headline: "Professional Mobile Notary Services",
+      subheadline: "Certified notary comes to you - home, office, or any location. Available 7 days a week.",
+      ctaText: "Book Notary Service",
+      backgroundImage: "/images/notary-hero.jpg"
+    },
+    features: [
+      {
+        icon: "📋",
+        title: "All Document Types",
+        description: "Real estate, legal, financial, and personal documents"
+      },
+      {
+        icon: "🚗",
+        title: "Mobile Service",
+        description: "We come to your preferred location"
+      },
+      {
+        icon: "⚡",
+        title: "Same-Day Available",
+        description: "Emergency and rush services available"
+      },
+      {
+        icon: "🔒",
+        title: "Secure & Certified",
+        description: "Licensed, bonded, and insured notary public"
+      }
+    ]
+  }
+};
+
 // Configuration Registry
 const NICHE_CONFIGS: Record<string, NicheConfig> = {
   'junk-removal': JUNK_REMOVAL_CONFIG,
   'house-cleaning': HOUSE_CLEANING_CONFIG,
+  'mobile-notary': MOBILE_NOTARY_CONFIG,
 };
 
 // Get configuration based on environment variable

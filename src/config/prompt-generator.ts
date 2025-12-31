@@ -62,6 +62,14 @@ function getServiceSpecificInfo(serviceType: string): string {
 - Pet-friendly cleaning needs`;
   }
   
+  if (serviceType.toLowerCase().includes('notary')) {
+    return `- Type of documents to be notarized
+- Number of signers
+- Preferred service location
+- Required identification available
+- Timeline for service`;
+  }
+  
   return `- Service location details
 - Scope of work needed
 - Timeline requirements
@@ -89,6 +97,17 @@ function getServiceContext(serviceType: string): string {
 - We're bonded and insured
 - Pet-friendly and eco-friendly options available
 - Flexible scheduling including weekends`;
+  }
+  
+  if (serviceType.toLowerCase().includes('notary')) {
+    return `**Mobile Notary Context:**
+- We notarize all types of documents: real estate, legal, financial, personal
+- Mobile service - we come to your location (home, office, hospital, etc.)
+- Available 7 days a week including evenings and weekends
+- Same-day and emergency services available
+- Licensed, bonded, and insured notary public
+- All signers must have valid government-issued photo ID
+- Pricing based on document type, number of signatures, and travel distance`;
   }
   
   return `**Service Context:**

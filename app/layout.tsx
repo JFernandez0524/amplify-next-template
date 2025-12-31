@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./app.css";
+import "./globals.css";
 import { ConfigureAmplifyClientSide } from "./components/ConfigureAmplify";
+import ChatWidget from "@/src/components/chat/ChatWidget";
+import Navigation from "@/src/components/navigation/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ConfigureAmplifyClientSide>
+          <Navigation />
           {children}
+          <ChatWidget />
         </ConfigureAmplifyClientSide>
       </body>
     </html>
